@@ -48,8 +48,21 @@ npm run send-batch -- "25k - Sheet1.csv" --dry-run
 5. Live send only after topping up and explicitly approving:
 
 ```bash
-npm run send-batch -- "25k - Sheet1.csv"
+# Partial run (example: ~$1000 balance ≈ 12k contacts at $0.075 each)
+npm run send-batch -- "25k - Sheet1.csv" --limit=12000
 ```
+
+After each batch the sender updates:
+- `sent.csv` — everyone successfully accepted so far
+- `remaining.csv` — unique source numbers not yet sent
+
+Resume later from leftovers:
+
+```bash
+npm run send-batch -- remaining.csv --limit=8000
+```
+
+Already-sent numbers in `sent.csv` are skipped automatically if you pass the master list again.
 
 Defaults dedupe numbers. Use `--keep-dupes` only if you intentionally want repeats.
 

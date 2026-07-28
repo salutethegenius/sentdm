@@ -4,3 +4,5 @@ dist/
 .env.local
 *.log
 contacts.unique.csv
+sent.csv
+remaining.csv
