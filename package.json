@@ -1,0 +1,18 @@
+{
+  "name": "sentdm-bulk-send",
+  "version": "1.0.0",
+  "description": "Conservative Sent.dm bulk message sender with test and batch support",
+  "type": "module",
+  "scripts": {
+    "connect": "tsx src/connect.ts",
+    "send-test": "tsx src/send-test.ts",
+    "send-batch": "tsx src/send-batch.ts"
+  },
+  "dependencies": {
+    "@sentdm/sentdm": "latest"
+  },
+  "devDependencies": {
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}
