@@ -73,3 +73,27 @@ Defaults dedupe numbers. Use `--keep-dupes` only if you intentionally want repea
 - Idempotency keys per batch
 - Sandbox mode via `--dry-run`
 - 429 backoff when rate limited
+
+## Analytics report
+
+Sent.dm has no template analytics export yet. We build our own from campaign logs + the message status API.
+
+1. Fetch delivery/cost for every logged `message_id` (resumable, ~90 min for 16k at 180 req/min):
+
+```bash
+npm run analytics:fetch
+# optional: npm run analytics:fetch -- --limit=100
+# optional: npm run analytics:fetch -- --retry-errors
+```
+
+Writes append-only `analytics-cache.jsonl`.
+
+2. Generate client-ready outputs:
+
+```bash
+npm run analytics:report
+```
+
+Produces:
+- `analytics-report.html` — summary dashboard
+- `analytics-report.csv` — row-level export
