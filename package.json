@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "connect": "tsx src/connect.ts",
+    "prepare": "tsx src/prepare.ts",
     "send-test": "tsx src/send-test.ts",
-    "send-batch": "tsx src/send-batch.ts"
+    "send-batch": "tsx src/send-batch.ts",
+    "analytics:fetch": "tsx src/analytics-fetch.ts",
+    "analytics:report": "tsx src/analytics-report.ts"
   },
   "dependencies": {
     "@sentdm/sentdm": "latest"
