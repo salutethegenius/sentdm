@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sent.dm Campaign Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0f1419;
+    --panel: #171e26;
+    --line: #2a3441;
+    --text: #e8eef5;
+    --muted: #8b9aab;
+    --accent: #3ecf8e;
+    --warn: #f0b429;
+    --danger: #ef6b6b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "DM Sans", system-ui, sans-serif;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #1a2a22 0%, transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, #1a2230 0%, transparent 50%),
+      var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 48px 24px 80px; }
+  h1 {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  .sub { color: var(--muted); margin-bottom: 36px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 800px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 18px 16px;
+  }
+  .card .label { color: var(--muted); font-size: 0.85rem; margin-bottom: 6px; }
+  .card .value { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; }
+  .card .value.good { color: var(--accent); }
+  .card .value.warn { color: var(--warn); }
+  section {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 18px;
+  }
+  h2 {
+    font-size: 1.05rem;
+    margin: 0 0 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+  th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 500; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  .timeline {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    min-height: 150px;
+    overflow-x: auto;
+    padding-top: 8px;
+  }
+  .bar-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 36px; }
+  .bar {
+    width: 22px;
+    background: linear-gradient(180deg, #56e0a5, #2a9b6f);
+    border-radius: 6px 6px 2px 2px;
+  }
+  .bar-wrap span { color: var(--muted); font-size: 0.7rem; }
+  .note { color: var(--muted); font-size: 0.9rem; margin-top: 10px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Campaign analytics</h1>
+    <p class="sub">Sent.dm NHI SMS campaign · generated 2026-07-29T16:11:29.935Z</p>
+
+    <div class="grid">
+      <div class="card"><div class="label">Messages tracked</div><div class="value">16,000</div></div>
+      <div class="card"><div class="label">Delivered</div><div class="value good">16,000</div></div>
+      <div class="card"><div class="label">Deliverability</div><div class="value good">100.00%</div></div>
+      <div class="card"><div class="label">Total spend</div><div class="value">$1198.13</div></div>
+    </div>
+
+    <div class="grid">
+      <div class="card"><div class="label">Carrier / message fees</div><div class="value">$958.88</div></div>
+      <div class="card"><div class="label">Platform fees</div><div class="value">$239.25</div></div>
+      <div class="card"><div class="label">Avg cost / msg</div><div class="value">$0.07</div></div>
+      <div class="card"><div class="label">Failed / blocked</div><div class="value ">0</div></div>
+    </div>
+
+    <section>
+      <h2>Status breakdown</h2>
+      <table>
+        <thead><tr><th>Status</th><th>Count</th><th>Share</th></tr></thead>
+        <tbody><tr><td>DELIVERED</td><td>16,000</td><td>100.00%</td></tr></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Channels</h2>
+      <table>
+        <thead><tr><th>Channel</th><th>Count</th></tr></thead>
+        <tbody><tr><td>sms</td><td>16,000</td></tr></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>By campaign run</h2>
+      <table>
+        <thead><tr><th>Campaign</th><th>Sent</th><th>Delivered</th><th>Deliverability</th><th>Cost</th></tr></thead>
+        <tbody><tr><td>campaign-1785265284282</td><td>12,000</td><td>12,000</td><td>100.00%</td><td>$898.41</td></tr><tr><td>campaign-1785292361008</td><td>4,000</td><td>4,000</td><td>100.00%</td><td>$299.72</td></tr></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Volume by hour (UTC)</h2>
+      <div class="timeline"><div class="bar-wrap" title="2026-07-28T19:00Z: 2900"><div class="bar" style="height:120px"></div><span>19:00</span></div><div class="bar-wrap" title="2026-07-28T20:00Z: 1150"><div class="bar" style="height:48px"></div><span>20:00</span></div><div class="bar-wrap" title="2026-07-28T21:00Z: 2100"><div class="bar" style="height:87px"></div><span>21:00</span></div><div class="bar-wrap" title="2026-07-28T22:00Z: 2726"><div class="bar" style="height:113px"></div><span>22:00</span></div><div class="bar-wrap" title="2026-07-28T23:00Z: 74"><div class="bar" style="height:4px"></div><span>23:00</span></div><div class="bar-wrap" title="2026-07-29T01:00Z: 2550"><div class="bar" style="height:106px"></div><span>01:00</span></div><div class="bar-wrap" title="2026-07-29T02:00Z: 1850"><div class="bar" style="height:77px"></div><span>02:00</span></div><div class="bar-wrap" title="2026-07-29T03:00Z: 2650"><div class="bar" style="height:110px"></div><span>03:00</span></div></div>
+    </section>
+
+    <section>
+      <h2>Failures sample</h2>
+      <table>
+        <thead><tr><th>Phone</th><th>Status</th><th>Message ID</th><th>Created</th></tr></thead>
+        <tbody><tr><td colspan="4">No failed / blocked / filtered messages in cache.</td></tr></tbody>
+      </table>
+      
+    </section>
+  </div>
+</body>
+</html>
